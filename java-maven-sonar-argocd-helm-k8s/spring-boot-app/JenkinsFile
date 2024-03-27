@@ -3,9 +3,10 @@ pipeline
     agent
      {
         docker {
-            image 'abhishekf5/maven-abhishek-docker-agent:v1'
-            args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-
+            // image 'abhishekf5/maven-abhishek-docker-agent:v1'
+            // args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+            def output = docker.image('abishekf5/maven-abhishek-docker-agent:v1').run("--user root -v /var/run/docker.sock:/var/run/docker.sock")
+            println output
         }
     }
     stages {
