@@ -52,7 +52,7 @@ pipeline
         }
         stage("update and Deployment File")
         {
-            environment
+            environment {
                GIT_REPO_NAME ="Jenkins-Zero-To-Hero"
                GIT_USER_NAME="Wintogeno" 
             }
