@@ -1,23 +1,40 @@
-pipeline 
-{
-    agent
-     {
-        docker {
-            image 'abhishekf5/maven-abhishek-docker-agent:v1'
-            args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-
-
-        }
+pipeline{
+    agent{
+        docker{
+             image 'abhishekf5/maven-abhishek-docker-agent:v1'
+             args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+        }        
     }
-
-    stages {
-        stage ('Checkout'){
+    stages{
+        stage('Checkout'){
             steps{
                 sh "echo passed"
             }
         }
     }
 }
+
+
+// pipeline 
+// {
+//     agent
+//      {
+//         docker {
+//             image 'abhishekf5/maven-abhishek-docker-agent:v1'
+//             args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+
+
+//         }
+//     }
+
+//     stages {
+//         stage ('Checkout'){
+//             steps{
+//                 sh "echo passed"
+//             }
+//         }
+//     }
+// }
 //         stage ("Build and Test"){
 //             steps{
 //                 sh "ls -ltr"
