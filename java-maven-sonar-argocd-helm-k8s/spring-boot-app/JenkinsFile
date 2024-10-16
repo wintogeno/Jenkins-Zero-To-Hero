@@ -37,7 +37,7 @@ pipeline{
             environment{
                 DOCKER_IMAGE="muneeb-ultimate-ci-cd-jenkins:${BUILD_NUMBER}"
                 // REGISTRY_CREDENTIALS=credentials("Docker-hub")
-                DOCKER_HUB_CREDENTIALS = 'Docker-hub'
+                DOCKER_HUB_CREDENTIALS = 'Docker-secret'
             }
             steps{
                 script{
@@ -51,8 +51,9 @@ pipeline{
         {
             steps{
                 script{
-                   withCredentials([usernamePassword(credentialsId: env.DOCKER_HUB_CREDENTIALS, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                   sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                      withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                        // Print the username to verify credentials are fetched
+                        sh "echo Docker username: ${DOCKER_USERNAME}"
                 }
             }
         }
