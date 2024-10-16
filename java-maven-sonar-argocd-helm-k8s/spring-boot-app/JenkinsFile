@@ -36,8 +36,8 @@ pipeline{
         {
             environment{
                 DOCKER_IMAGE="muneeb-ultimate-ci-cd-jenkins:${BUILD_NUMBER}"
-                // REGISTRY_CREDENTIALS=credentials("Docker-hub")
-                DOCKER_HUB_CREDENTIALS='Docker-secret'
+                DOCKER_HUB_CREDENTIALS=credentials("Docker-hub")
+                // DOCKER_HUB_CREDENTIALS='Docker-hub'
             }
             steps{
                 script{
