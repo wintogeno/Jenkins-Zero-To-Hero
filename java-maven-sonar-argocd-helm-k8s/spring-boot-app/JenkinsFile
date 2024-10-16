@@ -6,7 +6,8 @@ pipeline{
         }        
     }
     stages{
-        stage('Checkout'){
+        stage('Checkout')
+        {
             steps{
                 sh "echo passed"
             }
@@ -16,6 +17,7 @@ pipeline{
             steps{
                 sh "ls -ltr"
                 sh "cd java-maven-sonar-argocd-helm-k8s/spring-boot-app"
+                sh "ls"
                 sh "mvn clean package"
 
             }
