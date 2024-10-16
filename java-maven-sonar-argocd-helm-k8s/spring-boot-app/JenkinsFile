@@ -37,7 +37,7 @@ pipeline{
             environment{
                 DOCKER_IMAGE="muneeb-ultimate-ci-cd-jenkins:${BUILD_NUMBER}"
                 // REGISTRY_CREDENTIALS=credentials("Docker-hub")
-                DOCKER_HUB_CREDENTIALS='Docker-hub'
+                DOCKER_HUB_CREDENTIALS='Docker-Cred'
             }
             steps{
                 script{
@@ -50,7 +50,7 @@ pipeline{
         stage("Login to Docker Hub")
         {
            steps {
-        withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        withCredentials([usernamePassword(credentialsId: 'Docker-Cred', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
         //   sh 'docker push shanem/spring-petclinic:latest'
     }
