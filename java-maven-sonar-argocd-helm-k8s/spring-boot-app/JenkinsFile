@@ -27,7 +27,7 @@ pipeline{
            }
         
           steps{
-              withCredentials([string(credenetialsId:'sonar-token', variable: 'SONAR_AUTH_TOKEN')]){
+              withCredentials([string(credentialsId:'sonar-token', variable: 'SONAR_AUTH_TOKEN')]){
                 sh 'cd cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
               }
           }
