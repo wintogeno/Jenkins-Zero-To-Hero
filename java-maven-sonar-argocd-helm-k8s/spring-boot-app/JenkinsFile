@@ -69,14 +69,14 @@ pipeline{
          steps{
              withCredentials([string(credentialsId: 'git-cred', variable: 'GITHUB_TOKEN')])
               sh ''' 
-//                       git config user.email "muneem361@gmail.com"
-//                       git config user.name "wintogeno"
-//                       BUILD_NUMBER=${BUILD_NUMBER} 
-//                       sed -i "s/replaceImageTag/${BUILD_NUMBER}/g"  java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-//                       git add   java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-//                       git commit -m " update the Image Tag ${BUILD_NUMBER}"
-//                       git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
-//                       '''
+                         git config user.email "muneem361@gmail.com"
+                         git config user.name "wintogeno"
+                         BUILD_NUMBER=${BUILD_NUMBER} 
+                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g"  java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                         git add   java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                         git commit -m " update the Image Tag ${BUILD_NUMBER}"
+                         git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                         '''
          }
         }
  
